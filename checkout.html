@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | Perfume Paragon</title>
+<meta name="description" content="Enter your delivery details and prepare your Perfume Paragon order request.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230e0c0a'/%3E%3Cpath d='M12 3l8 9-8 9-8-9z' fill='none' stroke='%23b08d3c' stroke-width='1.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body data-page="checkout">
+<a class="skip" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="container">
+    <div class="page-head"><h1 class="h2">Checkout</h1></div>
+
+    <div class="empty" id="coEmpty" hidden>
+      <h2 class="h3">Your cart is empty</h2>
+      <p>Add a fragrance to your cart before checking out.</p>
+      <a class="btn btn-dark" href="shop.html">Continue shopping</a>
+      <p id="coLast" hidden style="margin-top:18px"><a class="link-btn" href="checkout.html?order=last">View your last order request</a></p>
+    </div>
+
+    <div class="co-layout" id="coWrap" hidden>
+      <form class="co-form" id="coForm" novalidate>
+        <h2>Delivery details</h2>
+        <div class="field"><label for="coName">Full name</label><input id="coName" name="name" type="text" autocomplete="name" required><span class="err-msg" id="err-name" role="alert"></span></div>
+        <div class="field-row">
+          <div class="field"><label for="coPhone">Phone number</label><input id="coPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="03XX XXXXXXX" required><span class="err-msg" id="err-phone" role="alert"></span></div>
+          <div class="field"><label for="coEmail">Email</label><input id="coEmail" name="email" type="email" autocomplete="email" required><span class="err-msg" id="err-email" role="alert"></span></div>
+        </div>
+        <div class="field"><label for="coAddress">Complete delivery address</label><textarea id="coAddress" name="address" rows="3" autocomplete="street-address" placeholder="House / flat, street, area" required></textarea><span class="err-msg" id="err-address" role="alert"></span></div>
+        <div class="field"><label for="coCity">City</label><input id="coCity" name="city" type="text" list="cityList" autocomplete="address-level2" required><span class="err-msg" id="err-city" role="alert"></span>
+          <datalist id="cityList"><option value="Karachi"><option value="Lahore"><option value="Islamabad"><option value="Rawalpindi"><option value="Faisalabad"><option value="Multan"><option value="Hyderabad"><option value="Peshawar"><option value="Quetta"><option value="Sialkot"></datalist></div>
+        <div class="field"><label for="coNotes">Order notes (optional)</label><textarea id="coNotes" name="notes" rows="2"></textarea></div>
+        <div class="notice">This site does not take payment. Continuing prepares your order request, which you then send to us by email or WhatsApp to arrange your order.</div>
+        <button class="btn btn-gold btn-block" type="submit">Prepare order request</button>
+      </form>
+
+      <aside class="summary" aria-label="Order summary">
+        <h2>Order summary</h2>
+        <ul id="coItems"></ul>
+        <p class="free-note" id="coFree" style="margin-top:12px"></p>
+        <div class="sum-row"><span>Subtotal</span><strong id="coSub">Rs.0</strong></div>
+        <div class="sum-row"><span>Delivery</span><strong id="coShip">Rs.0</strong></div>
+        <div class="sum-row sum-total"><span>Total</span><strong id="coTotal">Rs.0</strong></div>
+        <a class="btn btn-ghost btn-block" href="cart.html">Edit cart</a>
+      </aside>
+    </div>
+
+    <div class="done" id="coDone" hidden>
+      <div class="done-box">
+        <p class="eyebrow">Order request ready</p>
+        <h2 class="h3">Reference <span id="doneRef"></span></h2>
+        <div class="notice"><strong>Your order is not placed yet.</strong> Send this request to us using one of the options below so we can confirm your order, payment and delivery with you.</div>
+        <pre id="doneText"></pre>
+        <div class="done-actions">
+          <a class="btn btn-gold" id="doneEmail" href="#">Send by email</a>
+          <a class="btn btn-dark" id="doneWa" href="#" target="_blank" rel="noopener" hidden>Send on WhatsApp</a>
+          <button class="btn btn-ghost" type="button" id="doneCopy">Copy summary</button>
+          <button class="btn btn-ghost" type="button" id="donePrint">Print</button>
+        </div>
+        <p style="margin-top:24px"><a class="link-btn" href="shop.html">Continue shopping</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="main.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>
